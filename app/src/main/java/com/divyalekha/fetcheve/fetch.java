@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,13 +21,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class fetch extends AppCompatActivity {
+public class fetch extends AppCompatActivity implements AdapterView.OnItemClickListener {
    // public EditText mobileNo;
+   ArrayList<String> navArray;
+    ListView navlist;
     private Button button;
-    String event_list[]= new String[];
+   // String event_list[]= new String[20];
     private static final String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +45,13 @@ public class fetch extends AppCompatActivity {
         } catch (IOException e) {
 
         }
+        ListView navlist = (ListView)findViewById(R.id.navlist);
+
+        navArray = new ArrayList<String>();
 
         EditText mobileNo= (EditText) findViewById(R.id.mobileNo);
         final String mob= mobileNo.getText().toString();
 
-        button =(Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fetchevents(mob);
-            }
-        });
 
 
 
@@ -89,50 +91,64 @@ public class fetch extends AppCompatActivity {
                     //for(int i=1 ;i<=11 ;i++) {
                         int i=1;
                         if (e1 == 1) {
-                            event_list[i] += "name1";
+                            //event_list[i] = "name1";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if(e2 == 1)
                         {
-                           event_list[i]+="name2";
-                           i++;
+                           //event_list[i] ="name2";
+                            navArray.add("event1");
+                           //i++;
                         }
                         if (e3 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                           // event_list[i] = "name3";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e4 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name4";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e5 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name5";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e6 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name6";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e7 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name7";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e8 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name8";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e9 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name9";
+                            navArray.add("event1");
+                           // i++;
                         }
                         if (e10 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                            //event_list[i] = "name10";
+                            navArray.add("event1");
+                            //i++;
                         }
                         if (e11 == 1) {
-                            event_list[i] += "name1";
-                            i++;
+                           // event_list[i] = "name11";
+                            navArray.add("event1");
+                           // i++;
                         }
-                        
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(fetch.this, android.R.layout.simple_list_item_1, navArray);
+                        navlist.setAdapter(adapter);
+                        navlist.setOnItemClickListener(this);
 
 
 
@@ -190,5 +206,9 @@ public class fetch extends AppCompatActivity {
         return (Runtime.getRuntime().exec(command).waitFor() == 0);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
 }
 
