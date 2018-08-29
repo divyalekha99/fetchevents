@@ -24,6 +24,7 @@ import java.util.Map;
 public class fetch extends AppCompatActivity {
    // public EditText mobileNo;
     private Button button;
+    String event_list[]= new String[];
     private static final String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,59 @@ public class fetch extends AppCompatActivity {
                         int e10= events.getInt("e10");
                         int e11= events.getInt("e11");
                         Toast.makeText(getApplicationContext(), "fetched", Toast.LENGTH_LONG).show();
+                    //for(int i=1 ;i<=11 ;i++) {
+                        int i=1;
+                        if (e1 == 1) {
+                            event_list[i] += "name1";
+                        }
+                        if(e2 == 1)
+                        {
+                           event_list[i]+="name2";
+                           i++;
+                        }
+                        if (e3 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e4 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e5 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e6 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e7 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e8 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e9 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e10 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        if (e11 == 1) {
+                            event_list[i] += "name1";
+                            i++;
+                        }
+                        
+
+
+
+
+
+
 
                      /*   Intent i = new Intent(signup.this, MainActivity.class);
                         i.putExtra("username", name);
